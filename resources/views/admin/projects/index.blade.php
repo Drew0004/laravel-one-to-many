@@ -21,7 +21,9 @@
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Slug</th>
+                            <th scope="col">Client</th>
                             <th scope="col">Created at</th>
                             <th scope="col" colspan="3">Actions</th>
                         </tr>
@@ -32,7 +34,9 @@
                                 <th scope="row">{{ $project->id }}</th>
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->type->title }}</td>
+                                <td>{{ $project->description }}</td>
                                 <td>{{ $project->slug }}</td>
+                                <td>{{ $project->client }}</td>
                                 <td>{{ $project->created_at }}</td>
                                 <td>
                                     <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}" class="btn btn-xs btn-primary">

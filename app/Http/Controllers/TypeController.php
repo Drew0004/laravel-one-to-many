@@ -20,9 +20,9 @@ class TypeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Type $type)
     {
-        //
+        return view('admin.projects.create', compact('type'));
     }
 
     /**
