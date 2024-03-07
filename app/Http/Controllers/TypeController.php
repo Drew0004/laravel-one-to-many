@@ -12,17 +12,16 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::all();
-    
-        return view('admin.projects.index', compact('types'));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Type $type)
+    public function create()
     {
-        return view('admin.projects.create', compact('type'));
+        // $types = Type::all();
+        // return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -38,7 +37,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('admin.projects.show', compact('type'));
+
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Exception;
@@ -23,7 +24,9 @@ class ProjectController extends Controller
     { {
             $projects = Project::all();
 
-            return view('admin.projects.index', compact('projects'));
+            $types = Type::all();
+
+            return view('admin.projects.index', compact('projects', 'types'));
         }
     }
 
@@ -32,7 +35,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**

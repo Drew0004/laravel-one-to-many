@@ -35,6 +35,17 @@
                         @enderror
                     </div>
                     <div class="my-3">
+                        <label for="type" class="form-label text-white">Tipologia</label>
+                        <select class="form-select" aria-label="Default select example" id="type" name="type_id">
+                            <option selected disabled>Seleziona</option>
+                            @foreach ($types as $singleType){
+                                <option value="{{ $singleType->id }}">{{ $singleType->title }}</option>
+                            }
+                            @endforeach
+
+                        </select>
+                    </div>
+                    <div class="my-3">
                         <label for="description" class="form-label text-white">Descrizione*</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Aggiungi una descrizione" maxlength="1024" required>{{ old('description') }}</textarea>
                         @error('description')

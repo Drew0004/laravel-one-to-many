@@ -31,7 +31,11 @@
                         <tr>
                             <th scope="row">{{ $project->id }}</th>
                             <td>{{ $project->title }}</td>
-                            <td>{{ $project->type->title }}</td>
+                            @isset($project->type)
+                                <td>{{ $project->type->title }}</td>
+                            @else 
+                                <td>-</td>
+                            @endisset
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->slug }}</td>
                             <td>{{ $project->client }}</td>
