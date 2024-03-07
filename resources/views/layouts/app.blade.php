@@ -29,6 +29,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.projects.create') }}">Crea nuovo progetto</a>
                             </li>
+                            <li class="nav-item ms-5">
+                                <a class="nav-link" href="{{ route('admin.types.index') }}">Tutte le tipologie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.types.create') }}">Crea una nuova tipologia</a>
+                            </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

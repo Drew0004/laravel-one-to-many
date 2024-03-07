@@ -12,7 +12,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-
+        $types = Type::all();
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -35,9 +36,11 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Type $type)
+    public function show(string $slug)
     {
+        $type = Type::where('slug', $slug)->firstOrFail();
 
+        return view('admin.types.show', compact('type'));
     }
 
     /**
