@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
+// Helpers
+use Illuminate\Support\Str;
+
+// Form Requests
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\EditTypeRequest;
+
 class TypeController extends Controller
 {
     /**
@@ -21,16 +28,19 @@ class TypeController extends Controller
      */
     public function create()
     {
-        // $types = Type::all();
-        // return view('admin.projects.create', compact('types'));
+        return view('admin.types.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $typeData = $request->validated();
+        $slug = Str::slug($typeData['title']);
+        $typeData['slug'] = $slug;
+        $type = Type::create($typeData);
+        return redirect()->route('admin.types.show', ['type' => $type->slug]);
     }
 
     /**
