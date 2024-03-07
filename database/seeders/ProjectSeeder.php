@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 
 //Models
 use App\Models\Project;
+use App\Models\Type;
 
 
 class ProjectSeeder extends Seeder
@@ -22,10 +23,12 @@ class ProjectSeeder extends Seeder
         Project::truncate();
 
         for ($i = 0; $i < 10; $i++) {
+            $randomType = Type::inRandomOrder()->first();
             $project = new Project();
             $title = fake()->sentence();
             $slug = Str::slug($title);
             $project->title = $title;
+            $project->types_id = $randomType->id;
             $project->description = fake()->paragraph();
             $project->slug = $slug;
             $project->client = fake()->name();

@@ -15,4 +15,12 @@ class Project extends Model
         'slug',
         'client',
     ];
+
+    /*
+        Relationships
+    */
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
