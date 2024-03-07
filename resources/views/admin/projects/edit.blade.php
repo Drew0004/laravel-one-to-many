@@ -21,6 +21,24 @@
                 <input value="{{ $project->title }}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="200" required>
             </div>
             <div class="my-3">
+                <label for="type" class="form-label text-white">Tipologia</label>
+                <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example" id="type" name="type_id">
+                    <option {{ old('type_id',$project->type_id) == null ? 'selected' : '' }}>Valore vuoto</option>
+                    @foreach ($types as $singleType){
+                        <option 
+                        {{ old('type_id',$project->type_id) == $singleType->id ? 'selected' : '' }} 
+                        value="{{ $singleType->id }}">{{ $singleType->title }}</option>
+                    }
+                    @endforeach
+                    @error('type_id')
+                        <div class="alert alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
+                </select>
+            </div>
+            <div class="my-3">
                 <label for="description" class="form-label text-white">Descrizione*</label>
                 <textarea  class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Aggiungi una descrizione" maxlength="1024" required>
                 {{ $project->description }}

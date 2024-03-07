@@ -36,12 +36,19 @@
                     </div>
                     <div class="my-3">
                         <label for="type" class="form-label text-white">Tipologia</label>
-                        <select class="form-select" aria-label="Default select example" id="type" name="type_id">
-                            <option selected disabled>Seleziona</option>
+                        <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example" id="type" name="type_id">
+                            <option {{ old('type_id') == null ? 'selected' : '' }} value="">Valore vuoto</option>
                             @foreach ($types as $singleType){
-                                <option value="{{ $singleType->id }}">{{ $singleType->title }}</option>
+                                <option 
+                                {{ old('type_id') == $singleType->id ? 'selected' : '' }} 
+                                value="{{ $singleType->id }}">{{ $singleType->title }}</option>
                             }
                             @endforeach
+                            @error('type_id')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                         </select>
                     </div>

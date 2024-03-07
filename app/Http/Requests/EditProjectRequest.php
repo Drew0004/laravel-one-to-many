@@ -24,6 +24,7 @@ class EditProjectRequest extends FormRequest
         return [
             'title' => 'required|string|max:200',
             'description' => 'required|string|max:1024',
+            'type_id'=>'nullable|exists:types,id',
             'client' => 'required|string|max:46',
         ];
     }

@@ -66,9 +66,9 @@ class ProjectController extends Controller
      */
     public function edit(string $slug)
     {
-
+        $types = Type::all();
         $project = Project::where('slug', $slug)->firstOrFail();
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project','types'));
     }
 
     /**

@@ -69,10 +69,10 @@ creare il model Type --OK
 creare la migration di modifica per la tabella projects per aggiungere la chiave esterna --OK
 aggiungere ai model Type e Project i metodi per definire la relazione one to many --OK
 visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente --OK
-permettere all'utente di associare una tipologia nella pagina di creazione e modifica di un progetto
-gestire il salvataggio dell'associazione progetto-tipologia con opportune regole di validazione
+permettere all'utente di associare una tipologia nella pagina di creazione e modifica di un progetto --OK
+gestire il salvataggio dell'associazione progetto-tipologia con opportune regole di validazione --OK
 Bonus 1:
-creare il seeder per il model Type.
+creare il seeder per il model Type. --OK
 Bonus 2:
 aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
 Buon lavoro e buon divertimento!
