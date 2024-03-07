@@ -35,12 +35,13 @@
                                         Show
                                     </a>
                                 </td>
-                                {{-- <td>
-                                    <a class="btn btn-warning" href="{{ route('admin.projects.edit',['project' => $project->slug]) }}">
+                                <td>
+                                    <a class="btn btn-warning" href="{{ route('admin.types.edit',['type' => $type->slug]) }}">
                                         edit
                                     </a>
                                 </td>
-                                <td>
+
+                                {{-- <td>
                                     
                                     <button type="button" class="btn btn-danger" data-bs-toggle="offcanvas"
                                     data-bs-target="#deleteConfirmation{{ $project->slug , $project->title }}">

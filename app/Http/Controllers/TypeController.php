@@ -56,17 +56,24 @@ class TypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Type $type)
+    public function edit(string $slug)
     {
-        //
+        $type = Type::where('slug', $slug)->firstOrFail();
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $type)
+    public function update(EditTypeRequest $request, string $slug)
     {
-        //
+        $typeData = $request->validated();
+        $type = Type::where('slug', $slug)->firstOrFail();
+        $slug = Str::slug($typeData['title']);
+        $typeData['slug'] = $slug;
+        $type->updateOrFail($typeData);
+
+        return redirect()->route('admin.types.show', ['type' => $type->slug]);
     }
 
     /**
