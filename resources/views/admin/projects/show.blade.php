@@ -22,6 +22,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Slug</th>
                             <th scope="col">Created at</th>
+                            <th scope="col">Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->slug }}</td>
                             <td>{{ $project->created_at }}</td>
+                            <td>{{ $project->type->title }}</td>
                         </tr>
                     </tbody>
                 </table>

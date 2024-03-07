@@ -28,7 +28,7 @@ class ProjectSeeder extends Seeder
             $title = fake()->sentence();
             $slug = Str::slug($title);
             $project->title = $title;
-            $project->types_id = $randomType->id;
+            $project->type_id = $randomType->id;
             $project->description = fake()->paragraph();
             $project->slug = $slug;
             $project->client = fake()->name();
