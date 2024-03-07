@@ -41,33 +41,33 @@
                                     </a>
                                 </td>
 
-                                {{-- <td>
+                                <td>
                                     
                                     <button type="button" class="btn btn-danger" data-bs-toggle="offcanvas"
-                                    data-bs-target="#deleteConfirmation{{ $project->slug , $project->title }}">
+                                    data-bs-target="#deleteConfirmation{{ $type->slug , $type->title }}">
                                     Elimina
                                     </button>
 
                                 <div class="offcanvas offcanvas-end d" tabindex="-1"
-                                    id="deleteConfirmation{{ $project->slug , $project->title }}">
+                                    id="deleteConfirmation{{ $type->slug , $type->title }}">
                                     <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="deleteConfirmationLabel{{ $project->slug , $project->title }}">
+                                        <h5 class="offcanvas-title" id="deleteConfirmationLabel{{ $type->slug , $type->title }}">
                                             Conferma eliminazione
                                         </h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="offcanvas-body">
-                                        <p>Vuoi davvero eliminare <h5 class=" d-inline-block ">{{ $project->title }}</h5> ?</p>
-                                        <form class="mt-5" id="deleteForm{{ $project->slug }}"
-                                            action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}" method="POST">
+                                        <p>Vuoi davvero eliminare <h5 class=" d-inline-block ">{{ $type->title }}</h5> ?</p>
+                                        <form class="mt-5" id="deleteForm{{ $type->slug }}"
+                                            action="{{ route('admin.types.destroy', ['type' => $type->slug]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Conferma eliminazione</button>
                                         </form>
                                     </div>
                                 </div>
-                                </td>  --}}
+                                </td> 
                             </tr>
                         @endforeach
                     </tbody>

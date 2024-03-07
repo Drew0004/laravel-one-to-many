@@ -79,8 +79,12 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Type $type)
+    public function destroy(string $slug)
     {
-        //
+        $type = Type::where('slug', $slug)->firstOrFail();
+        
+        $type->delete();
+
+        return redirect()->route('admin.types.index');
     }
 }
